@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Etch-4-Sketch</title>
+		<link href="./styles.css" rel="stylesheet">
+	</head>
+	<body>
+		<h1>Etch-A-Sketch: The Odin Project</h1>
+		<div id="slider-container">
+			<input type="range" min="1" max="1000" value="16" class="slider" id="my-range">
+		</div>
+		<button>Reset</button>
+		<div id="square">
+			<div id="grid"></div>
+		</div>
+
+		<!-- The script -->
+		<script>
+			const sliderDiv = document.getElementById('slider-container');
+			const sideLength = sliderDiv.childNodes[1].valueOf().getAttribute('value');
+			console.log(`${sideLength}`);
+			// Define the handler function for the grid.
+			let gridDivs = "";
+			for (let i = 0; i < sideLength ** 2; i++) {
+				gridDivs += "<div class='gridSquare'></div>"
+			}	
+			//function hoverHandler(e) {}
+			// Using delegation pattern for the hovering
+			const grid = document.getElementById('grid');
+			grid.style.setProperty('--numColumns', sideLength);	
+			grid.innerHTML = gridDivs;
+			grid.addEventListener('hover', function(e) {
+				hoverHandler(e);
+			});
+		</script>
+	</body>
+</html>

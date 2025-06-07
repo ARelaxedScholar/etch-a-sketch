@@ -1,0 +1,49 @@
+/* CSS Reset */
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* My Actual Styling */
+#square {
+	width: 35%;
+	padding-bottom: 35%;
+	background: red;
+}
+
+#grid {
+	--gapSize: 2px;
+	--numColumns: 16;
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--gapSize);
+	width: 100%;
+	overflow: hidden;
+	--sideLength: calc((100% - (var(--numColumns) - 1) * var(--gapSize)) / var(--numColumns));
+}
+
+.gridSquare {
+	background: white;
+	border: 1px black solid;
+	aspect-ratio: 1/1;
+	width: var(--sideLength);
+}
